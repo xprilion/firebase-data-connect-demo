@@ -1,3 +1,5 @@
+Follow this code along with this tutorial - https://xprilion.com/firebase-data-connect-getting-started/
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
