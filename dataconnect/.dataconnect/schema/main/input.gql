@@ -1,0 +1,145 @@
+scalar Email_Key
+scalar EmailMeta_Key
+scalar Recipient_Key
+scalar User_Key
+input Email_Data {
+  id: UUID
+  id_expr: UUID_Expr
+  fromUid: String
+  fromUid_expr: String_Expr
+  from: User_Key
+  sent: Date
+  sent_date: Date_Relative
+  sent_expr: Date_Expr
+  subject: String
+  subject_expr: String_Expr
+  text: String
+  text_expr: String_Expr
+}
+input Email_Filter {
+  _and: [Email_Filter!]
+  _not: Email_Filter
+  _or: [Email_Filter!]
+  id: UUID_Filter
+  fromUid: String_Filter
+  from: User_Filter
+  sent: Date_Filter
+  subject: String_Filter
+  text: String_Filter
+  emailMetas_on_email: EmailMeta_ListFilter
+  recipients_on_email: Recipient_ListFilter
+  users_via_EmailMeta: User_ListFilter
+  users_via_Recipient: User_ListFilter
+}
+input Email_ListFilter {
+  count: Int_Filter
+  exist: Email_Filter
+}
+input Email_Order {
+  id: OrderDirection
+  fromUid: OrderDirection
+  from: User_Order
+  sent: OrderDirection
+  subject: OrderDirection
+  text: OrderDirection
+}
+input EmailMeta_Data {
+  userUid: String
+  userUid_expr: String_Expr
+  emailId: UUID
+  emailId_expr: UUID_Expr
+  email: Email_Key
+  user: User_Key
+  labels: [String!]
+  muted: Boolean
+  read: Boolean
+  snoozed: Date
+  snoozed_date: Date_Relative
+  snoozed_expr: Date_Expr
+  starred: Boolean
+}
+input EmailMeta_Filter {
+  _and: [EmailMeta_Filter!]
+  _not: EmailMeta_Filter
+  _or: [EmailMeta_Filter!]
+  userUid: String_Filter
+  emailId: UUID_Filter
+  email: Email_Filter
+  user: User_Filter
+  labels: String_ListFilter
+  muted: Boolean_Filter
+  read: Boolean_Filter
+  snoozed: Date_Filter
+  starred: Boolean_Filter
+}
+input EmailMeta_ListFilter {
+  count: Int_Filter
+  exist: EmailMeta_Filter
+}
+input EmailMeta_Order {
+  userUid: OrderDirection
+  emailId: OrderDirection
+  email: Email_Order
+  user: User_Order
+  muted: OrderDirection
+  read: OrderDirection
+  snoozed: OrderDirection
+  starred: OrderDirection
+}
+input Recipient_Data {
+  emailId: UUID
+  emailId_expr: UUID_Expr
+  userUid: String
+  userUid_expr: String_Expr
+  email: Email_Key
+  user: User_Key
+}
+input Recipient_Filter {
+  _and: [Recipient_Filter!]
+  _not: Recipient_Filter
+  _or: [Recipient_Filter!]
+  emailId: UUID_Filter
+  userUid: String_Filter
+  email: Email_Filter
+  user: User_Filter
+}
+input Recipient_ListFilter {
+  count: Int_Filter
+  exist: Recipient_Filter
+}
+input Recipient_Order {
+  emailId: OrderDirection
+  userUid: OrderDirection
+  email: Email_Order
+  user: User_Order
+}
+input User_Data {
+  uid: String
+  uid_expr: String_Expr
+  address: String
+  address_expr: String_Expr
+  name: String
+  name_expr: String_Expr
+}
+input User_Filter {
+  _and: [User_Filter!]
+  _not: User_Filter
+  _or: [User_Filter!]
+  uid: String_Filter
+  address: String_Filter
+  name: String_Filter
+  emails_on_from: Email_ListFilter
+  emailMetas_on_user: EmailMeta_ListFilter
+  recipients_on_user: Recipient_ListFilter
+  emails_via_EmailMeta: Email_ListFilter
+  emails_via_Recipient: Email_ListFilter
+}
+input User_ListFilter {
+  count: Int_Filter
+  exist: User_Filter
+}
+input User_Order {
+  uid: OrderDirection
+  address: OrderDirection
+  name: OrderDirection
+}

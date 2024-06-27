@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "default": "dataconnectdemo-x"
+  },
+  "dataconnectEmulatorConfig": {
+    "postgres": {
+      "localConnectionString": "postgresql://fbuser:DemoPass098@localhost:5432/firebase_data_connect_local?sslmode=disable"
+    }
+  }
+}

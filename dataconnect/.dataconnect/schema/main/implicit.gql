@@ -1,0 +1,12 @@
+extend type Email {
+  id: UUID! @default(expr: "uuidV4()")
+  fromUid: String!
+}
+extend type EmailMeta {
+  userUid: String!
+  emailId: UUID!
+}
+extend type Recipient {
+  emailId: UUID!
+  userUid: String!
+}

@@ -1,0 +1,9 @@
+connectorId: "default-connector"
+authMode: "PUBLIC" 
+generate:
+  javascriptSdk:
+    # Create a custom package name for your generated SDK
+    package: "@dataconnectdemo/email"
+    # Tells Data Connect where to store the generated SDK code, this should be in the same
+    # directory as your app code
+    outputDir: "../../dataconnectdemo-generated"

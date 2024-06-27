@@ -1,0 +1,34 @@
+extend type Query {
+  """
+  Look up a single Email based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  email(id: UUID, key: Email_Key): Email
+  """
+  Look up a single EmailMeta based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  emailMeta(key: EmailMeta_Key): EmailMeta
+  """
+  Look up a single Recipient based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  recipient(key: Recipient_Key): Recipient
+  """
+  Look up a single User based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  user(key: User_Key): User
+  """
+  List Email entries in the table, optionally filtered by `where` conditions.
+  """
+  emails(where: Email_Filter, orderBy: [Email_Order!], limit: Int = 100): [Email!]!
+  """
+  List EmailMeta entries in the table, optionally filtered by `where` conditions.
+  """
+  emailMetas(where: EmailMeta_Filter, orderBy: [EmailMeta_Order!], limit: Int = 100): [EmailMeta!]!
+  """
+  List Recipient entries in the table, optionally filtered by `where` conditions.
+  """
+  recipients(where: Recipient_Filter, orderBy: [Recipient_Order!], limit: Int = 100): [Recipient!]!
+  """
+  List User entries in the table, optionally filtered by `where` conditions.
+  """
+  users(where: User_Filter, orderBy: [User_Order!], limit: Int = 100): [User!]!
+}

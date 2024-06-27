@@ -1,0 +1,40 @@
+extend type Email {
+  """
+  ✨ List EmailMeta entries in a one-to-many relationship with this object (i.e. where `EmailMeta.email` equals this object).
+  """
+  emailMetas_on_email(where: EmailMeta_Filter, orderBy: [EmailMeta_Order!], limit: Int = 100): [EmailMeta!]!
+  """
+  ✨ List Recipient entries in a one-to-many relationship with this object (i.e. where `Recipient.email` equals this object).
+  """
+  recipients_on_email(where: Recipient_Filter, orderBy: [Recipient_Order!], limit: Int = 100): [Recipient!]!
+  """
+  ✨ List related User entries using EmailMeta as a join table (i.e. where an entry of EmailMeta exists whose email == this and user == that).
+  """
+  users_via_EmailMeta(where: EmailMeta_Filter, orderBy: [EmailMeta_Order!], limit: Int = 100): [User!]!
+  """
+  ✨ List related User entries using Recipient as a join table (i.e. where an entry of Recipient exists whose email == this and user == that).
+  """
+  users_via_Recipient(where: Recipient_Filter, orderBy: [Recipient_Order!], limit: Int = 100): [User!]!
+}
+extend type User {
+  """
+  ✨ List Email entries in a one-to-many relationship with this object (i.e. where `Email.from` equals this object).
+  """
+  emails_on_from(where: Email_Filter, orderBy: [Email_Order!], limit: Int = 100): [Email!]!
+  """
+  ✨ List EmailMeta entries in a one-to-many relationship with this object (i.e. where `EmailMeta.user` equals this object).
+  """
+  emailMetas_on_user(where: EmailMeta_Filter, orderBy: [EmailMeta_Order!], limit: Int = 100): [EmailMeta!]!
+  """
+  ✨ List Recipient entries in a one-to-many relationship with this object (i.e. where `Recipient.user` equals this object).
+  """
+  recipients_on_user(where: Recipient_Filter, orderBy: [Recipient_Order!], limit: Int = 100): [Recipient!]!
+  """
+  ✨ List related Email entries using EmailMeta as a join table (i.e. where an entry of EmailMeta exists whose user == this and email == that).
+  """
+  emails_via_EmailMeta(where: EmailMeta_Filter, orderBy: [EmailMeta_Order!], limit: Int = 100): [Email!]!
+  """
+  ✨ List related Email entries using Recipient as a join table (i.e. where an entry of Recipient exists whose user == this and email == that).
+  """
+  emails_via_Recipient(where: Recipient_Filter, orderBy: [Recipient_Order!], limit: Int = 100): [Email!]!
+}
